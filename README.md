@@ -1,137 +1,79 @@
-Sales Data Analysis Project
+# 📊 Sales Data Analysis and Management Project
 
-📊 Project Overview
-This project explores a real-world sales dataset to demonstrate data collection, management, cleaning, and analysis processes using both Excel and Python.
+## Project Overview
+This group project focuses on exploring a **real-world sales dataset** (`Week-2, Sales-Data.csv`) to apply core concepts in **data collection, management, cleaning, and analysis**. The project utilizes both **Microsoft Excel** for quick insights and **Python with pandas** for robust data processing and Key Performance Indicator (KPI) calculation.
 
-📁 Dataset Information
-Type of Data and Structure
-This dataset comprises structured data because it is organized in a straightforward, tabular manner with consistent rows and columns that follow a predictable pattern. Each record has standardized fields and reflects sales transactions, making it easily readable by both analytical tools and humans. The data adheres to a strict schema where each item has the same set of properties, allowing effective handling in databases and spreadsheet programs.
+**Key Topics Covered:**
+* Data lifecycle & governance
+* Structured vs unstructured data
+* File formats (CSV, JSON, XML, SQL)
+* Data cleaning and preparation
+* Data summarization and visualization
 
-Column Purpose Explanation
-Column	Purpose
-Order_ID	Functions as a distinct tracking identifier for every sales transaction; similar to a receipt number that aids in system identification of specific orders
-Product	Indicates the type of goods sold, including the precise item that each customer bought
-Region	Shows sales distribution around the nation by indicating the geographic location where transactions occurred
-Units_Sold	Provides information on sales volume and client purchasing patterns by displaying the number of goods bought in each order
-Unit_Price	Helps understand pricing strategies for various items by representing the cost of a single product unit
-Revenue	Primary financial statistic for business performance, calculated by multiplying units sold by unit price
-Sales_Rep	Provides commission calculations and performance monitoring by identifying the team member who closed the deal
-Order_Date	Indicates the time of each transaction, allowing investigation of sales trends and seasonal patterns over time
-🛠️ Tools & Technologies Used
-Microsoft Excel: Data exploration, pivot tables, charts, and reporting
+---
 
-Python: Data cleaning, analysis, and KPI calculations
+## Part A: Data Exploration and Description
 
-Pandas: Data manipulation and analysis
+### 1. Data Type and Column Purpose
 
-Jupyter Notebook: Interactive Python environment
+#### Type of Data and Why
+This dataset comprises **structured data**  because it is organized in a straightforward, tabular manner with consistent rows and columns that follow a predictable pattern. Because each record has standardized fields and reflects a sales transaction, both analytical tools and people can read it with ease. Since structured data can be handled effectively in databases and spreadsheet programs, the data adheres to a strict schema in which each item has the same set of properties.
 
-📋 Project Tasks
-Part A - Working with Data in Excel (20 Marks)
-1. Import and Explore (5 Marks)
-Import the Week-2-Sales-Data.csv file into Microsoft Excel
+#### Column Purpose Explanation
+| Column Name | Purpose |
+| :--- | :--- |
+| **Order_ID** | Functions as a distinct tracking identifier for every sales transaction; it is comparable to a receipt number that aids in the system's identification of specific orders. |
+| **Product** | Indicates the kind of goods that were sold, including the precise item that each consumer bought. |
+| **Region** | Shows how sales are dispersed around the nation by indicating the geographic location where the transaction took place. |
+| **Units_Sold** | Provides information on sales volume and client purchasing trends by displaying the number of goods bought in each order. |
+| **Unit_Price** | Represents the cost of a single unit of the product, helping us understand pricing strategies for various items. |
+| **Revenue** | The primary financial statistic for business performance, calculated by multiplying **Units_Sold** by **Unit_Price**. |
+| **Sales_Rep** | Provides commission calculations and performance monitoring by identifying the team member who closed the deal. |
+| **Order_Date** | Indicates the time of each transaction, allowing for the investigation of sales trends and seasonal patterns over time. |
 
-Explore and describe the dataset structure
+---
 
-Identify and explain column purposes
+### 2. Summarized Sales Insights (Excel)
+Using Excel's built-in tools (Pivot Tables, SUMIF, Charts), the following sales insights were generated:
 
-2. Summarize Sales Insights (15 Marks)
-Using Excel's built-in tools:
+| Insight | Excel Tool Used |
+| :--- | :--- |
+| **Total revenue generated by each product.** | Pivot Table (Product in Rows, Sum of Revenue in Values) |
+| **Total revenue by region.** | Pivot Table (Region in Rows, Sum of Revenue in Values) |
+| **Top 3 best-selling products by total revenue.** | Pivot Table (Revenue sorted Descending) |
+| **Monthly revenue trend.** | Pivot Table (Group Order_Date by Month, Sum of Revenue) |
+| **Revenue comparison by region.** | Bar/Column Chart based on the Total Revenue by Region results.  |
 
-a) Total revenue generated by each product
+---
 
-b) Total revenue by region
+## Part B: Python Data Management and KPI Calculation
 
-c) Top 3 best-selling products by total revenue
+### 3. Data Import and Cleaning (Python/Pandas)
+The data was imported and processed in a Jupyter Notebook using the `pandas` library to ensure data quality and readiness for analysis.
 
-d) Monthly revenue trend
+#### Cleaning Steps:
+1.  **Import:** Loaded `Week-2-Sales-Data.csv` into a pandas DataFrame.
+2.  **Duplicates:** Removed any duplicate rows using the `drop_duplicates()` method.
+3.  **Missing Values:** Checked for null values. Any sparse missing values were **handled by [State your chosen method: e.g., dropping the row/column, or filling with a mean/median/mode]**.
+4.  **Data Types:** Converted the **Order_Date** column to the proper `datetime` format using `pd.to_datetime()`.
 
-e) Bar/column chart showing revenue comparison by region
+### 4. Key Performance Indicators (KPIs) Calculation
+The cleaned dataset was used to calculate the following essential business performance metrics:
 
-Part B - Working with Data in Python (20 Marks)
-3. Import and Clean the Data (5 Marks)
-Using Python (pandas):
+| KPI | Calculation Method |
+| :--- | :--- |
+| **Total revenue for the entire dataset.** | Sum of the **Revenue** column. |
+| **Average units sold per order.** | Mean (Average) of the **Units_Sold** column. |
+| **Total revenue per region.** | Group by **Region** and sum the **Revenue** column. |
+| **Highest revenue-generating sales representative.** | Group by **Sales_Rep**, sum **Revenue**, and identify the maximum value/representative. |
+| **Top 3 products by total units sold.** | Group by **Product**, sum **Units_Sold**, and identify the top 3 (descending sort). |
 
-Import dataset into Jupyter Notebook
+---
 
-Check for missing values, duplicates, and incorrect data types
+## Submission & Deliverables
 
-Clean dataset by:
+The final submission includes the following:
 
-Removing duplicates
-
-Handling missing values
-
-Converting Order_Date to proper datetime format
-
-4. Calculate Key Performance Indicators (KPIs) (15 Marks)
-Using Python to calculate:
-
-a) Total revenue for the entire dataset
-
-b) Average units sold per order
-
-c) Total revenue per region
-
-d) Highest revenue-generating sales representative
-
-e) Top 3 products by total units sold
-
-📊 Key Learning Objectives
-Data Collection & Management Topics Covered:
-Data lifecycle & governance
-
-Structured vs unstructured data
-
-File formats (CSV, JSON, XML, SQL)
-
-Data cleaning and preprocessing
-
-Exploratory Data Analysis (EDA)
-
-📈 Expected Outcomes
-Excel Report: Comprehensive worksheet with proper headings, labels, and charts summarizing all analysis results
-
-Python Script: Clean, well-documented code for data processing and KPI calculations
-
-Business Insights: Actionable sales performance metrics and trends
-
-Data Quality: Cleaned and validated dataset ready for further analysis
-
-👥 Team Information
-Group members to be added
-
-📁 Project Structure
-text
-sales-analysis-project/
-├── data/
-│   └── Week-2-Sales-Data.csv
-├── excel/
-│   └── Sales_Analysis_Report.xlsx
-├── python/
-│   ├── sales_analysis.ipynb
-│   └── sales_analysis.py
-├── docs/
-│   └── project_report.md
-└── README.md
-🚀 Getting Started
-Clone this repository
-
-Ensure you have Python and required libraries installed:
-
-bash
-pip install pandas jupyter matplotlib seaborn
-Open the Jupyter notebook or run the Python script
-
-Follow the analysis steps outlined in the project tasks
-
-📊 Sample Visualizations
-The project includes various charts and visualizations:
-
-Revenue comparison by region (bar charts)
-
-Monthly revenue trends (line charts)
-
-Product performance analysis
-
-Sales representative performance metrics
+1.  **A comprehensive Excel Report:** A single worksheet summarizing all results from Part A (Q2), featuring proper headings, labels, and the required chart.
+2.  **Jupyter Notebook File (.ipynb):** Containing the Python code for data import, cleaning (Part B, Q3), and the KPI calculations (Part B, Q4).
+3.  **This GitHub README.md:** Providing project context and a summary of activities.
